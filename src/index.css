@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --lime: #00FF00;
+  --pink: #FF00FF;
+  --black: #000000;
+  --white: #FFFFFF;
+  --red: #FF0000;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  background-color: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+  perspective: 2000px;
+} 
+
+.font-impact {
+  font-family: 'Anton', sans-serif;
+}
+
+.scanlines {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+              linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 4px, 4px 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.01;
+}
+
+.glitch-title {
+  animation: glitchV 0.3s infinite;
+}
+
+@keyframes glitchV {
+  0% { transform: translate(0); text-shadow: 4px 0 var(--pink), -4px 0 #00ffff;}
+  25% { transform: translate(-2px, 2px); clip-path: inset(10% 0 30% 0);}
+  50% { transform: translate(2px, -2px); clip-path: inset(50% 0 10% 0);}
+  75% { transform: translate(-1px, 1px); filter: hue-rotate(45deg);}
+  100% { transform: translate(0);}
+}
+
+.button-glitch:hover {
+  transform: translate(2px, -2px); 
+  box-shadow: -4px 4px 0px var(--pink);
+} 
+
+.button-glitch:active {
+  transform: translate(1px, -1px); 
+  box-shadow: -2px 2px 0px var(--pink);
+}
+
+.brutalist-border {
+  border: 3px solid var(--white);
+}
+
+.brutalist-border-lime {
+  border: 3px solid var(--lime);
+}
+
+.chromatic-fx:hover {
+  filter: url(#chromatic-aberration);
+}
+
+.pixel-bg {
+  background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+  background-size: 10px 10px;
+  opacity: 0.05;
+}
+
+.shake-fx {
+  animation: miniShake 0.1s linear 3;
+}
+
+@keyframes miniShake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(3px); }
+  50% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+  100% { transform: translateX(0); }
+}
