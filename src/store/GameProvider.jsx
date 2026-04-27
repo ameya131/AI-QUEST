@@ -19,8 +19,7 @@ export const GameProvider = ({ children }) => {
     { id: 'level3', title: 'SIM_03: BRIDGE_BUILD', component: 'Level3_BrokenBridge' },
     { id: 'level4', title: 'SIM_04: PASSWORD_CRACK', component: 'Level4_PasswordGuess' },
     { id: 'level5', title: 'SIM_05: DEFUSE_BOMB', component: 'Level5_BombDefusal' },
-    { id: 'level6', title: 'SIM_06: ADV_SCIENCE', component: 'Level6_AdvScience' },
-    { id: 'level7', title: 'SIM_07: MOUSE_DOT', component: 'Level7_MouseDot' }
+    { id: 'level6', title: 'SIM_06: SHAPE_TRANSFORM', component: 'Level6_ClassicalMEA' }
   ];
 
   const startGame = () => {

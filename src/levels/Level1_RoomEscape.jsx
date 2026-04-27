@@ -78,8 +78,16 @@ const Level1_RoomEscape = () => {
     <div className={`relative w-full h-full flex items-center justify-center p-8 ${shake ? 'shake-fx' : ''}`}>
       <div className="absolute top-4 left-4 text-xs font-bold text-white opacity-40">CAM_01_INPUT</div>
       
-      <div className={`absolute bottom-0 w-32 md:w-48 h-64 bg-black border-4 transition-all duration-500 ${gameState.doorOpen ? 'border-lime-500 translate-x-16 md:translate-x-32 skew-y-12 shadow-[0_0_50px_#00FF00]' : 'border-white'}`}>
-        {gameState.doorOpen && <div className="w-full h-full bg-lime-500/20 flex items-center justify-center font-impact text-2xl text-lime-400">EXIT</div>}
+      <div className={`absolute bottom-0 w-32 md:w-48 h-64 border-4 overflow-hidden top-auto transition-colors duration-1000 ${gameState.doorOpen ? 'border-lime-500 shadow-[0_0_50px_#00FF00]' : 'border-white'}`}>
+         {/* Exit background */}
+         <div className="absolute inset-0 bg-lime-500/20 flex items-center justify-center">
+            <span className="font-impact text-4xl text-lime-400 animate-pulse">EXIT</span>
+         </div>
+         
+         {/* The Sliding Door */}
+         <div className={`absolute inset-0 bg-zinc-900 border-l-2 border-r-2 border-zinc-700 transition-transform duration-[1500ms] ease-in-out z-10 ${gameState.doorOpen ? 'translate-x-[105%]' : 'translate-x-0'}`}>
+            <div className="absolute top-1/2 left-4 w-2 h-16 bg-zinc-600 -translate-y-1/2"></div>
+         </div>
       </div>
       
       {!gameState.hasKey && (

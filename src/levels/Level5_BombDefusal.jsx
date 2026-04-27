@@ -24,6 +24,15 @@ const Level5_BombDefusal = () => {
     { id: 'intel', label: '02_NO_INTEL' }
   ];
 
+  const restartLevel = () => {
+    setGameState({ timer: 60, clueRead: false, defused: false, exploded: false, steps: 0 });
+    setSelectedDiff(null);
+    setSelectedAction(null);
+    setFeedback({ msg: "RELAX. JUST DON'T EXPLODE.", type: 'neutral' });
+    setIsProcessing(false);
+    setShake(false);
+  };
+
   useEffect(() => {
     if (gameState.defused || gameState.exploded) return;
     
@@ -95,8 +104,14 @@ const Level5_BombDefusal = () => {
   const visualComponent = (
     <div className={`w-full h-full flex flex-col items-center justify-center p-8 bg-zinc-950 relative ${shake || gameState.exploded ? 'shake-fx' : ''}`}>
       {gameState.exploded && (
-        <div className="absolute inset-0 bg-red-600 flex items-center justify-center z-50">
-           <div className="font-impact text-[150px] text-yellow-400 rotate-12 scale-150 animate-pulse mix-blend-screen">BOOM</div>
+        <div className="absolute inset-0 bg-red-600 flex flex-col items-center justify-center z-50">
+           <div className="font-impact text-[150px] text-yellow-400 rotate-12 scale-150 animate-pulse mix-blend-screen mb-12">BOOM</div>
+           <button 
+             onClick={restartLevel} 
+             className="px-8 py-4 bg-black border-4 border-white text-white font-impact text-3xl hover:bg-white hover:text-black transition-colors shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-pointer active:scale-95"
+           >
+             REBOOT SYSTEM
+           </button>
         </div>
       )}
       
