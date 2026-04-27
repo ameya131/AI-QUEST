@@ -14,7 +14,7 @@ export const initAudio = () => {
     if (!bgmInstance) {
         bgmInstance = new Audio('/audio/bgm.mp3');
         bgmInstance.loop = true;
-        bgmInstance.volume = 0.4;
+        bgmInstance.volume = 0.65;
     }
     if (!sfxClick) {
         sfxClick = new Audio('/audio/click.mp3');
