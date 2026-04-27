@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
+import { playBGM } from '../utils/audioManager';
 
 const GameContext = createContext();
 
@@ -27,6 +28,7 @@ export const GameProvider = ({ children }) => {
     setCurrentLevelIndex(0);
     setTotalScore(0);
     setLevelHistory([]);
+    playBGM();
   };
 
   const playLevel = () => {

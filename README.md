@@ -1,3 +1,4 @@
+
 # AI Quest: Think Like a Smart AI
 
 AI Quest is a brutalist, story-driven educational web application designed to teach the fundamentals of Mean-Ends Analysis (MEA).
@@ -53,3 +54,4 @@ The goal of this application is not just to entertain but to actively reinforce 
 - Breaking down large goals into practical steps.
 - Learning to isolate context.
 - Prioritizing functional operations toward the main objective. 
+

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useGame } from '../store/GameProvider';
 import GameLayout from '../components/layout/GameLayout';
+import { playSuccess, playWrong } from '../utils/audioManager';
 
 const Level5_BombDefusal = () => {
   const { finishLevel, currentLevelInfo } = useGame();
@@ -40,6 +41,7 @@ const Level5_BombDefusal = () => {
       setGameState(prev => {
         if (prev.timer <= 1) {
           clearInterval(interval);
+          playWrong();
           setFeedback({ msg: '💥 BOOM. YOU WERE TOO SLOW.', type: 'error' });
           return { ...prev, timer: 0, exploded: true };
         }
@@ -64,11 +66,13 @@ const Level5_BombDefusal = () => {
       if (a === 'cut_red' || a === 'cut_blue') {
         if (!gameState.clueRead) {
           setShake(true);
+          playWrong();
           setGameState(prev => ({ ...prev, exploded: true }));
           setFeedback({ msg: '💥 BOOM. WHY WOULD YOU GUESS?', type: 'error' });
         } else {
           if (a === 'cut_blue') {
             setGameState(prev => ({ ...prev, defused: true }));
+            playSuccess();
             setFeedback({ msg: '✅ DEFUSED. GOOD JOB READING.', type: 'success' });
             setTimeout(() => {
               finishLevel({
@@ -80,19 +84,23 @@ const Level5_BombDefusal = () => {
             }, 1500);
           } else {
             setShake(true);
+            playWrong();
             setGameState(prev => ({ ...prev, exploded: true }));
             setFeedback({ msg: '💥 BOOM. THE MANUAL SAID CUT BLUE. CAN YOU READ?', type: 'error' });
           }
         }
       } else if (d === 'intel' && a === 'read_manual') {
         setGameState(prev => ({ ...prev, clueRead: true }));
+        playSuccess();
         setFeedback({ msg: '✅ MANUAL SAYS: THE RED WIRE IS A TRAP. CUT BLUE.', type: 'success' });
       } else if (a === 'panic') {
         setGameState(prev => ({ ...prev, timer: Math.max(0, prev.timer - 10) }));
         setShake(true);
+        playWrong();
         setFeedback({ msg: '❌ PANICKING COSTS 10 SECONDS.', type: 'error' });
         setTimeout(() => setShake(false), 500);
       } else {
+        playWrong();
         setFeedback({ msg: '❌ ERROR: THIS ACTION DOES NOT REDUCE THE DIFFERENCE.', type: 'error' });
       }
       
