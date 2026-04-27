@@ -1,16 +1,55 @@
-# React + Vite
+# AI Quest: Think Like a Smart AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI Quest is a brutalist, story-driven educational web application designed to teach the fundamentals of Mean-Ends Analysis (MEA).
 
-Currently, two official plugins are available:
+You follow an immersive, multi-level campaign where each level introduces and reinforces core MEA principles, such as identifying differences, selecting relevant operators, and achieving precise subgoals. A sarcastic AI personality provides meme-heavy feedback, creating a "troll-style" learning experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+The application is built with a modern, performant, and reliable frontend ecosystem:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Icons**: [@iconify/react](https://iconify.design/)
+- **Design Paradigm**: Brutalist, responsive full-screen desktop layout (no-scroll)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for Production**
+   ```bash
+   npm run build
+   ```
+
+4. **Preview Production Build**
+   ```bash
+   npm run preview
+   ```
+
+## Project Structure
+
+The project leans on a clear and modular architecture in standard Vite+React fashion:
+
+- `/src`: Contains the core application code.
+  - `/src/components`: Reusable UI elements building on Tailwind design tokens.
+  - `/src/levels`: Sub-modules representing the distinct levels of the AI Quest (e.g., Level1_RoomEscape, Level6_ClassicalMEA).
+  - `/src/store`: Application state management (e.g., GameProvider).
+  - `App.jsx`, `index.css`, `main.jsx`: Core application entry points and layout definitions.
+- `/public`: Static assets, including the modular `/audio` directory structured for ambient and sound-effect handling.
+  
+## Objectives
+
+The goal of this application is not just to entertain but to actively reinforce systematic problem solving through:
+- Breaking down large goals into practical steps.
+- Learning to isolate context.
+- Prioritizing functional operations toward the main objective. 
