@@ -29,7 +29,7 @@ const LandingPage = () => {
           😈
         </div>
         <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-1 font-bold text-xl uppercase skew-x-12">
-          U MAD?
+          U SMART?
         </div>
       </div>
       <h1 className="font-impact text-7xl md:text-9xl mb-2 glitch-title tracking-tighter">AI QUEST</h1>
